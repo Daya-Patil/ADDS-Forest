@@ -265,7 +265,7 @@
     {
       "name": "CreateVNET",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "[providers(‘Microsoft.Resources’,’deployments’).apiVersions[0]]",
+      "apiVersion": "2019-10-01",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -320,7 +320,7 @@
     {
       "name": "CreateADVM1",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-08-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
         "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetNameRoot'))]"
@@ -377,7 +377,7 @@
     {
       "name": "CreateForest",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-08-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "Microsoft.Resources/deployments/CreateADVM1"
       ],
@@ -419,7 +419,7 @@
       "name": "CreateADVM3",
       "type": "Microsoft.Resources/deployments",
       "condition": "[parameters('createChildDomain')]",
-      "apiVersion": "2018-08-01",
+      "apiVersion": "2019-10-01",
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
         "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetNameChild'))]"
@@ -476,7 +476,7 @@
     {
       "name": "CreateChildDomain",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-08-01",
+      "apiVersion": "2019-10-01",
       "condition": "[parameters('createChildDomain')]",
       "dependsOn": [
         "Microsoft.Resources/deployments/CreateADVM3",
