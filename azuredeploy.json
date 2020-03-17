@@ -265,7 +265,7 @@
     {
       "name": "CreateVNET",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "providers(‘Microsoft.Resources’,’deployments’).apiVersions[0]",
+      "apiVersion": "[providers(‘Microsoft.Resources’,’deployments’).apiVersions[0]]",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
